@@ -1,0 +1,17 @@
+name: setup-check
+
+on:
+  push:
+    branches: ["**"]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Sync pinned dependencies
+        run: uv sync
+      - name: Validate and re-execute the notebook
+        run: uv run --with nbformat --with nbconvert --with ipykernel python run-check.py

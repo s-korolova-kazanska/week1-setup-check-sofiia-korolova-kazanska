@@ -1,0 +1,9 @@
+[project]
+name = "stat163-2026t1-week1-setup-check"
+version = "0.1.0"
+description = "STAT163 Week 1 setup verification"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "jupyterlab>=4.0",
+]
